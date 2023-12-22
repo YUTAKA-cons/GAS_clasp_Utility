@@ -26,12 +26,16 @@ fi
 
 # deploy
 if [ $? -eq 0 ]; then
-    clasp deploy --deploymentId $LAST_DEPLOYMENT_ID
+    urls=`clasp deploy --deploymentId $LAST_DEPLOYMENT_ID`
 fi
 
 # delete setting file
 rm ./src/appsscript.json
 rm ./src/.clasp.json
+
+# URL
+url=(${urls// / })
+echo https://script.google.com/macros/s/${url[4]}/exec
 
 # return
 if [ $1 ]; then
