@@ -35,8 +35,8 @@ rm .clasp.json.bak
 sed -i .bak "s/America\/New_York/Asia\/Tokyo/g" appsscript.json
 rm appsscript.json.bak
 cp appsscript.json appsscript.json.bak
-#cat appsscript.json.bak | jq '.+ {"webapp":{"access": "ANYONE_ANONYMOUS","executeAs": "USER_DEPLOYING"}}' > appsscript.json
-#rm appsscript.json.bak
+cat appsscript.json.bak | jq '.+ {"webapp":{"access": "ANYONE_ANONYMOUS","executeAs": "USER_DEPLOYING"}}' > appsscript.json
+rm appsscript.json.bak
 
 rm -rf src/*
 
